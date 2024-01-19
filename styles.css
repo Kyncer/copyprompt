@@ -1,0 +1,169 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+    display: flex;
+    background-color: #16191d;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    border-radius: 12px;
+    padding: 40px;
+    background-color: #343541;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+#title {
+    margin-top: 20px;
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    background-color: white;
+    /* Change this to the desired background color code */
+}
+
+#bigField {
+    border: none;
+    background-color: white;
+    /* Change this to the desired background color code */
+}
+
+.copyFieldContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.copyField {
+    border: none;
+    margin-right: 10px;
+    padding: 10px;
+    height: 36px;
+    box-sizing: border-box;
+}
+
+#buttonGroup {
+    gap: 10px;
+}
+
+.copyButton {
+    background-color: white;
+    border: none;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+#addFieldButton,
+#replaceFieldButton,
+#distributeButton,
+#removeEmptyLinesButton,
+#refreshButton,
+#decrementButton,
+#resetCountersButton,
+#loadButton,
+#saveButton {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 5px 12px;
+    color: #FFFFFF;
+    font-size: 18px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+#distributeButton {
+    background-color: green;
+    color: white;
+}
+
+#refreshButton {
+    background-color: red;
+    color: white;
+}
+
+.fieldNumber {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#copyFieldsContainer,
+#addButtonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#addButtonContainer {
+    margin: auto;
+    display: block;
+    width: 100%;
+    flex: 1;
+}
+
+#buttonGroup {
+    display: flex;
+    margin-top: 10px;
+}
+
+#bigField {
+    margin-top: 20px;
+    width: 600px;
+    height: 150px;
+    resize: vertical;
+}
+
+.copiedNote {
+    color: green;
+    font-size: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: none;
+}
+
+/* Added highlight effect */
+.highlight {
+    background-color: lightgreen;
+    transition: background-color 1s ease;
+    /* Extended the transition duration */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    /* Extended the transition duration */
+}
+
+.highlight2 {
+    background-color: red;
+    transition: background-color 1s ease;
+    /* Extended the transition duration */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    /* Extended the transition duration */
+}
+
+/* Added green background color effect */
+.greenBackground {
+    background-color: lightgreen;
+    transition: background-color 1s ease;
+    /* Extended the transition duration */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.counter {
+    margin-left: 5px;
+}
