@@ -5,397 +5,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  
+
   <title>CopyPrompt</title>
 </head>
 
 <body>
-  <div id="title">CopyPrompt</div>
+
   <div class="container">
-  <div id="copyFieldsContainer">
-    <!-- Initial 5 default input fields with buttons -->
-    <div class="copyFieldContainer">
-      <span class="fieldNumber">1.</span>
-      <input type="text" class="copyField" size="50" maxlength="250">
-      <button class="copyButton" onclick="copyToClipboard(1, this)">Copy</button>
-      <button class="copyButton" onclick="goToDestination(1, this)">Go</button>
+    
+
+    <div class="container-title">
+      <a class="close-btn" href="javascript:void(0);" onclick="window.close();">X</a>
+      <h1 class="title">CopyPrompt</h1>
+      <label id="copyAllButton" onclick="copyAllFields()">
+        <svg class="clip" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="white" d="M23 15H11.707l2.646 2.646-.707.707L9.793 14.5l3.854-3.854.707.707L11.707 14H23zm-13-5H6v1h4zm-4 5h2v-1H6zM3 4h3V3h3a2 2 0 0 1 4 0h3v1h3v9h-1V5h-2v2H6V5H4v16h14v-5h1v6H3zm4 2h8V4h-3V2.615A.615.615 0 0 0 11.386 2h-.771a.615.615 0 0 0-.615.615V4H7zM6 19h4v-1H6z" />
+          <path fill="none" d="M0 0h24v24H0z" />
+        </svg>
+      </label>
+    </div>
+    <div id="copyFieldsContainer">
+      <!-- Initial 5 default input fields with buttons -->
+      <div class="copyFieldContainer">
+        <span class="fieldNumber">1.</span>
+        <input type="text" class="copyField" size="100">
+        <button class="copyButton" onclick="copyToClipboard(1, this)">Copy</button>
+        <button class="copyButton" onclick="goToDestination(1, this)">Go</button>
+      </div>
+
+      <div class="copyFieldContainer">
+        <span class="fieldNumber">2.</span>
+        <input type="text" class="copyField" size="100">
+        <button class="copyButton" onclick="copyToClipboard(2, this)">Copy</button>
+        <button class="copyButton" onclick="goToDestination(2, this)">Go</button>
+      </div>
+
+      <div class="copyFieldContainer">
+        <span class="fieldNumber">3.</span>
+        <input type="text" class="copyField" size="100">
+        <button class="copyButton" onclick="copyToClipboard(3, this)">Copy</button>
+        <button class="copyButton" onclick="goToDestination(3, this)">Go</button>
+      </div>
+
+      <div class="copyFieldContainer">
+        <span class="fieldNumber">4.</span>
+        <input type="text" class="copyField" size="100">
+        <button class="copyButton" onclick="copyToClipboard(4, this)">Copy</button>
+        <button class="copyButton" onclick="goToDestination(4, this)">Go</button>
+      </div>
+
+      <div class="copyFieldContainer">
+        <span class="fieldNumber">5.</span>
+        <input type="text" class="copyField" size="100">
+        <button class="copyButton" onclick="copyToClipboard(5, this)">Copy</button>
+        <button class="copyButton" onclick="goToDestination(5, this)">Go</button>
+      </div>
     </div>
 
-    <div class="copyFieldContainer">
-      <span class="fieldNumber">2.</span>
-      <input type="text" class="copyField" size="50" maxlength="250">
-      <button class="copyButton" onclick="copyToClipboard(2, this)">Copy</button>
-      <button class="copyButton" onclick="goToDestination(2, this)">Go</button>
+    <div id="addButtonContainer">
+      <div id="buttonGroup">
+        <button id="addFieldButton" onclick="addCopyField()">Add Field</button>
+        <button id="replaceFieldButton" onclick="showReplaceDialog()">Replace</button>
+        <button id="loadButton" onclick="triggerFileInput()">Load</button>
+        <button id="saveButton" onclick="saveFields()">Save</button>
+      </div>
+      <div id="buttonGroup">
+        <button id="distributeButton" onclick="distributeText()">Distribute</button>
+        <button id="refreshButton" onclick="showRefreshConfirmation()">Refresh</button>
+        <button id="decrementButton" onclick="decrementCounter()">-1 Counter</button>
+        <button id="resetCountersButton" onclick="resetAllCounters()">Reset</button>
+      </div>
     </div>
 
-    <div class="copyFieldContainer">
-      <span class="fieldNumber">3.</span>
-      <input type="text" class="copyField" size="50" maxlength="250">
-      <button class="copyButton" onclick="copyToClipboard(3, this)">Copy</button>
-      <button class="copyButton" onclick="goToDestination(3, this)">Go</button>
-    </div>
-
-    <div class="copyFieldContainer">
-      <span class="fieldNumber">4.</span>
-      <input type="text" class="copyField" size="50" maxlength="250">
-      <button class="copyButton" onclick="copyToClipboard(4, this)">Copy</button>
-      <button class="copyButton" onclick="goToDestination(4, this)">Go</button>
-    </div>
-
-    <div class="copyFieldContainer">
-      <span class="fieldNumber">5.</span>
-      <input type="text" class="copyField" size="50" maxlength="250">
-      <button class="copyButton" onclick="copyToClipboard(5, this)">Copy</button>
-      <button class="copyButton" onclick="goToDestination(5, this)">Go</button>
-    </div>
+    <textarea id="bigField" placeholder="Enter text prompt here to distribute"></textarea>
   </div>
-
-  <div id="addButtonContainer">
-    <div id="buttonGroup">
-      <button id="addFieldButton" onclick="addCopyField()">Add Field</button>
-      <button id="replaceFieldButton" onclick="showReplaceDialog()">Replace</button>
-      <button id="loadButton" onclick="triggerFileInput()">Load</button>
-      <button id="saveButton" onclick="saveFields()">Save</button>
-    </div>
-    <div id="buttonGroup">
-      <button id="distributeButton" onclick="distributeText()">Distribute</button>
-      <button id="refreshButton" onclick="showRefreshConfirmation()">Refresh</button>
-      <button id="decrementButton" onclick="decrementCounter()">-1 Counter</button>
-      <button id="resetCountersButton" onclick="resetAllCounters()">Reset</button>
-    </div>
-  </div>
-
-  <textarea id="bigField" placeholder="Enter text prompt here to distribute"></textarea>
-</div>
-  <script>
-    var lastClickedButton = null;
-
-    function addCopyField() {
-      var container = document.getElementById("copyFieldsContainer");
-      var div = document.createElement("div");
-      var input = document.createElement("input");
-      var copyButton = document.createElement("button");
-      var goButton = document.createElement("button"); // New button for "Go"
-      var fieldNumber = container.children.length + 1;
-
-      div.className = "copyFieldContainer";
-
-      var numberSpan = document.createElement("span");
-      numberSpan.className = "fieldNumber";
-      numberSpan.textContent = fieldNumber + ".";
-
-      input.type = "text";
-      input.className = "copyField";
-      input.size = "50";
-      input.maxlength = "350";
-
-      copyButton.className = "copyButton";
-      copyButton.textContent = "Copy";
-
-      goButton.className = "copyButton"; // Use the same style as the copy button
-      goButton.textContent = "Go";
-      goButton.onclick = function () {
-        goToDestination(fieldNumber);
-      };
-
-      copyButton.onclick = function () {
-        copyToClipboard(fieldNumber, copyButton);
-      };
-
-      div.appendChild(numberSpan);
-      div.appendChild(input);
-      div.appendChild(copyButton);
-      div.appendChild(goButton); // Append the new "Go" button
-      container.appendChild(div);
-    }
-
-    function goToDestination(fieldNumber) {
-      var copyFieldContainer = document.querySelector('.copyFieldContainer:nth-child(' + fieldNumber + ')');
-      var copyField = copyFieldContainer.querySelector('.copyField');
-      var url = copyField.value.trim();
-
-      if (url !== "") {
-        // Check if the URL contains a period before opening a new tab
-        if (url.includes(".")) {
-          if (!url.startsWith("http://") && !url.startsWith("https://")) {
-            url = "http://" + url;
-          }
-
-          // Open the specified URL in a new tab
-          var newTab = window.open(url, '_blank');
-
-          // Apply the existing green highlight class similar to the copy button
-          copyFieldContainer.classList.add('highlight2');
-          button.classList.add('highlight2');
-          setTimeout(function () {
-            button.classList.remove('highlight2');
-          }, 300);
-
-          copyFieldContainer.classList.add('greenBackground');
-        } else {
-
-        }
-      } else {
-
-      }
-    }
-
-
-    function copyToClipboard(fieldNumber, button) {
-      var copyFieldContainer = document.querySelector('.copyFieldContainer:nth-child(' + fieldNumber + ')');
-      var copyField = copyFieldContainer.querySelector('.copyField');
-      var dummy = document.createElement("textarea");
-      document.body.appendChild(dummy);
-      dummy.value = copyField.value;
-      dummy.select();
-      document.execCommand("copy");
-      document.body.removeChild(dummy);
-
-      var copiedNote = document.createElement("span");
-      copiedNote.className = "copiedNote";
-      copiedNote.textContent = "Copied";
-      copiedNote.style.fontSize = "50%";
-      copiedNote.style.color = getRandomColor();
-
-      var counter = button.querySelector('.counter') || document.createElement("span");
-      counter.className = "counter";
-      var count = parseInt(counter.textContent) || 0;
-
-      if (button !== lastClickedButton) {
-        count += 1;
-      }
-
-      counter.textContent = "+" + count;
-      counter.style.marginLeft = "5px";
-
-      var existingNote = copyFieldContainer.querySelector('.copiedNote');
-
-      if (existingNote) {
-        existingNote.remove();
-      }
-
-      copyFieldContainer.insertBefore(copiedNote, copyFieldContainer.firstChild);
-      button.appendChild(counter);
-
-      button.classList.add('highlight');
-      setTimeout(function () {
-        button.classList.remove('highlight');
-      }, 300);
-
-      copyFieldContainer.classList.add('greenBackground');
-
-      var allCopyFieldContainers = document.querySelectorAll('.copyFieldContainer');
-      Array.from(allCopyFieldContainers).forEach(function (container) {
-        if (container !== copyFieldContainer) {
-          container.classList.remove('greenBackground');
-        }
-      });
-
-      lastClickedButton = button;
-    }
-
-    function showReplaceDialog() {
-      var findText = prompt("Enter text to find:");
-      if (findText === null) {
-        return;
-      }
-
-      var replaceText = prompt("Enter text to replace with:");
-      if (replaceText === null) {
-        return;
-      }
-
-      replaceTextInFields(findText, replaceText);
-    }
-
-    function replaceTextInFields(findText, replaceText) {
-      var container = document.getElementById("copyFieldsContainer");
-
-      Array.from(container.children).forEach(function (fieldContainer, index) {
-        var copyField = fieldContainer.querySelector('.copyField');
-        copyField.value = copyField.value.replace(new RegExp(findText, 'g'), replaceText);
-      });
-    }
-
-    function distributeText() {
-      var bigField = document.getElementById("bigField");
-      var lines = bigField.value.split('\n').filter(function (line) {
-        return line.trim() !== "";
-      });
-
-      Array.from(document.querySelectorAll('.copyFieldContainer')).forEach(function (fieldContainer, index) {
-        var copyField = fieldContainer.querySelector('.copyField');
-        if (lines[index] !== undefined) {
-          var trimmedLine = lines[index].trim();
-          copyField.value = trimmedLine;
-        } else {
-          fieldContainer.remove();
-        }
-      });
-
-      removeEmptyFields();
-
-      for (var i = document.querySelectorAll('.copyFieldContainer').length + 1; i <= lines.length; i++) {
-        addCopyField();
-        var newField = document.querySelector('.copyFieldContainer:nth-child(' + i + ') .copyField');
-        if (lines[i - 1] !== undefined) {
-          var trimmedLine = lines[i - 1].trim();
-          newField.value = trimmedLine;
-        }
-      }
-    }
-
-    function removeEmptyFields() {
-      var container = document.getElementById("copyFieldsContainer");
-
-      Array.from(container.children).forEach(function (fieldContainer) {
-        var copyField = fieldContainer.querySelector('.copyField');
-        var value = copyField.value;
-
-        if (/^\s*$/.test(value)) {
-          fieldContainer.remove();
-        }
-      });
-    }
-
-    function getRandomColor() {
-      var letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
-
-    function showRefreshConfirmation() {
-      var confirmRefresh = confirm("Are you sure you want to refresh? This will clear all fields.");
-      if (confirmRefresh) {
-        refreshFields();
-      }
-    }
-
-    function refreshFields() {
-      var container = document.getElementById("copyFieldsContainer");
-      container.innerHTML = "";
-
-      for (var i = 1; i <= 5; i++) {
-        addCopyField();
-      }
-
-      var bigField = document.getElementById("bigField");
-      bigField.value = "";
-
-      lastClickedButton = null;
-    }
-
-    function decrementCounter() {
-      if (lastClickedButton) {
-        var counter = lastClickedButton.querySelector('.counter');
-        var count = parseInt(counter.textContent) || 0;
-
-        if (count > 0) {
-          count -= 1;
-          counter.textContent = "+" + count;
-        }
-      }
-    }
-
-    function resetAllCounters() {
-      var allCounters = document.querySelectorAll('.counter');
-
-      allCounters.forEach(function (counter) {
-        counter.textContent = "";
-      });
-    }
-
-    function saveFields() {
-      var fileName = prompt("Enter a name for the saved file (without extension):");
-
-      if (!fileName) {
-        alert("File name cannot be empty. Please try again.");
-        return;
-      }
-
-      var savedData = {
-        copyFields: [],
-        bigField: document.getElementById("bigField").value
-      };
-
-      var copyFieldContainers = document.querySelectorAll('.copyFieldContainer');
-
-      copyFieldContainers.forEach(function (container, index) {
-        var copyField = container.querySelector('.copyField');
-        savedData.copyFields.push({
-          fieldNumber: index + 1,
-          value: copyField.value
-        });
-      });
-
-      var jsonData = JSON.stringify(savedData);
-      var blob = new Blob([jsonData], { type: 'application/json' });
-      var a = document.createElement('a');
-
-      // Updated the download attribute with the user-specified file name
-      a.download = fileName + '.json';
-
-      a.href = URL.createObjectURL(blob);
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
-
-    function triggerFileInput() {
-      document.getElementById('loadFileInput').click();
-    }
-
-    function loadFile() {
-      var input = document.getElementById('loadFileInput');
-      var file = input.files[0];
-
-      if (file) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          var jsonData = JSON.parse(e.target.result);
-          loadFields(jsonData);
-        };
-        reader.readAsText(file);
-      }
-
-      // Clear the input field to allow loading the same file again
-      input.value = '';
-    }
-
-    function loadFields(data) {
-      // Remove existing blank fields
-      removeEmptyFields();
-
-      // Add fields based on the loaded data
-      addFieldsFromData(data.copyFields.length);
-
-      // Load data into copy fields
-      var copyFieldContainers = document.querySelectorAll('.copyFieldContainer');
-
-      data.copyFields.forEach(function (fieldData, index) {
-        var container = copyFieldContainers[index];
-        var copyField = container.querySelector('.copyField');
-        copyField.value = fieldData.value;
-      });
-
-      // Load data into big field
-      var bigField = document.getElementById('bigField');
-      bigField.value = data.bigField;
-    }
-
-    function addFieldsFromData(count) {
-      for (var i = 1; i <= count; i++) {
-        addCopyField();
-      }
-    }
-
-  </script>
-
   <input type="file" id="loadFileInput" style="display:none" accept=".json" onchange="loadFile()">
-
+  <script src="script.js"></script>
 </body>
 
 </html>
