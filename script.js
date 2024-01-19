@@ -20,10 +20,10 @@ function addCopyField() {
   input.maxlength = "350";
 
   copyButton.className = "copyButton";
-  copyButton.textContent = "Copy";
+  copyButton.textContent = "COPY";
 
   goButton.className = "copyButton"; // Use the same style as the copy button
-  goButton.textContent = "Go";
+  goButton.textContent = "GO";
   goButton.onclick = function () {
     goToDestination(fieldNumber);
   };
@@ -69,7 +69,6 @@ function goToDestination(fieldNumber) {
 
   }
 }
-
 
 function copyToClipboard(fieldNumber, button) {
   var copyFieldContainer = document.querySelector('.copyFieldContainer:nth-child(' + fieldNumber + ')');
@@ -336,4 +335,83 @@ dummy.value = copiedText.trim();
 dummy.select();
 document.execCommand("copy");
 document.body.removeChild(dummy);
+}
+
+//for case convert app
+
+function updateAndConvertToUppercase() {
+  var inputField = document.getElementById("inputText");
+  inputField.value = inputField.value.toUpperCase();
+  updateCharCount();
+}
+
+function convertToLowercase() {
+  var inputField = document.getElementById("inputText");
+  inputField.value = inputField.value.toLowerCase();
+  updateCharCount();
+}
+
+function convertToCapitalizeCase() {
+  var inputField = document.getElementById("inputText");
+  var words = inputField.value.split(' ');
+  for (var i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+  }
+  inputField.value = words.join(' ');
+  updateCharCount();
+}
+
+function clearText() {
+  var inputField = document.getElementById("inputText");
+  inputField.value = "";
+  updateCharCount();
+}
+
+function copyText() {
+  var inputField = document.getElementById("inputText");
+  inputField.select();
+  document.execCommand("copy");
+}
+
+function updateCharCount() {
+  var inputField = document.getElementById("inputText");
+  var charCounter = document.getElementById("charCounter");
+  charCounter.textContent = "Characters: " + inputField.value.length;
+}
+
+function removeNumbered() {
+  var inputField = document.getElementById("inputText");
+  var lines = inputField.value.split('\n');
+
+  for (var i = 0; i < lines.length; i++) {
+      // Remove numbers or number lists (with or without a closing parenthesis) from the start of each line
+      lines[i] = lines[i].replace(/^\d+(\.|\))?\s*/, '');
+  }
+
+  inputField.value = lines.join('\n');
+  updateCharCount();
+}
+
+
+
+function toggleDarkMode() {
+  var body = document.body;
+  var textarea = document.getElementById("inputText");
+  var darkModeButton = document.getElementById("darkModeButton");
+
+  body.classList.toggle("dark-mode");
+  textarea.classList.toggle("dark-mode");
+  darkModeButton.classList.toggle("dark-mode");
+
+  var isDarkMode = body.classList.contains("dark-mode");
+
+  if (isDarkMode) {
+      darkModeButton.textContent = "Light Mode";
+      darkModeButton.style.backgroundColor = "#333";
+      darkModeButton.style.color = "#fff";
+  } else {
+      darkModeButton.textContent = "Dark Mode";
+      darkModeButton.style.backgroundColor = "#fff";
+      darkModeButton.style.color = "#333";
+  }
 }

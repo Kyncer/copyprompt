@@ -44,7 +44,7 @@ body {
     justify-content: space-between;
     border: 0.5px solid #28282b;
     border-bottom: none;
-    border-radius: 12px 12px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
     background-color: #202123;
     text-align: center;
     width: 100%;
@@ -60,7 +60,8 @@ body {
 input[type="text"] {
     background-color: white;
     border: 0;
-    margin-right: 5px;
+    border-right: .5px solid black;
+    margin: 0;
     width: 80%;
     /* Change this to the desired background color code */
 }
@@ -79,13 +80,13 @@ input:focus {
 .copyFieldContainer {
     display: flex;
     width: 100%;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .copyField {
     border: none;
     margin-right: 10px;
-    padding: 10px;
     height: 36px;
     box-sizing: border-box;
 }
@@ -97,10 +98,15 @@ input:focus {
 
 .copyButton {
     width: 100px;
+    font-size: 12px;
     background-color: white;
-    border: none;
-    margin-inline-end: 5px;
+    border: 0;
     padding: 10px;
+}
+
+.copyButton:last-child {
+    margin-right: 5px;
+    border-left: .5px solid #202123;
 }
 
 #addFieldButton,
@@ -112,6 +118,7 @@ input:focus {
 #resetCountersButton,
 #loadButton,
 #saveButton {
+    border-radius: 3px;
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -121,7 +128,7 @@ input:focus {
     border: 0;
     padding: 6px 12px;
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
@@ -173,7 +180,7 @@ input:focus {
 #bigField {
     border-radius: 0 0 5px 5px;
     box-sizing: border-box;
-    margin: 20px;
+    margin: 15px;
     margin-bottom: 0px;
     width: 100%;
     height: 150px;
@@ -192,26 +199,21 @@ input:focus {
 .highlight {
     background-color: lightgreen;
     transition: background-color 1s ease;
-    /* Extended the transition duration */
-
-padding: 0;
-    /* Extended the transition duration */
+    padding: 0;
 }
 
 .highlight2 {
     background-color: red;
     transition: background-color 1s ease;
-    /* Extended the transition duration */
     padding: 0;
-    /* Extended the transition duration */
 }
 
-/* Added green background color effect */
 .greenBackground {
-    background-color: lightgreen;
+    background-color: #207044;
     transition: background-color 1s ease;
-    /* Extended the transition duration */
-    padding: 0;
+    
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .counter {
