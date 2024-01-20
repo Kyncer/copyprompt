@@ -75,8 +75,12 @@
         <button class="convert-btn" onclick="removeNumbered()">Remove#</button>
       </div>
     </div>
-    <textarea id="bigField" placeholder="Enter text prompt here to distribute"></textarea>
+    <textarea id="bigField" placeholder="Enter text prompt here to distribute" oninput="updateCharCount()"></textarea>
+    <div class="foot-container">
+      <div id="charCounter">Characters: 0</div>
+    </div>
   </div>
+
   <input type="file" id="loadFileInput" style="display:none" accept=".json" onchange="loadFile()">
   <script src="script.js"></script>
 </body>
