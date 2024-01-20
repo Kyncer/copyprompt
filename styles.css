@@ -109,6 +109,7 @@ input:focus {
     border-left: .5px solid #202123;
 }
 
+.convert-btn,
 #addFieldButton,
 #replaceFieldButton,
 #distributeButton,

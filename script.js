@@ -340,19 +340,19 @@ document.body.removeChild(dummy);
 //for case convert app
 
 function updateAndConvertToUppercase() {
-  var inputField = document.getElementById("inputText");
+  var inputField = document.getElementById("bigField");
   inputField.value = inputField.value.toUpperCase();
   updateCharCount();
 }
 
 function convertToLowercase() {
-  var inputField = document.getElementById("inputText");
+  var inputField = document.getElementById("bigField");
   inputField.value = inputField.value.toLowerCase();
   updateCharCount();
 }
 
 function convertToCapitalizeCase() {
-  var inputField = document.getElementById("inputText");
+  var inputField = document.getElementById("bigField");
   var words = inputField.value.split(' ');
   for (var i = 0; i < words.length; i++) {
       words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
@@ -362,25 +362,25 @@ function convertToCapitalizeCase() {
 }
 
 function clearText() {
-  var inputField = document.getElementById("inputText");
+  var inputField = document.getElementById("bigField");
   inputField.value = "";
   updateCharCount();
 }
 
 function copyText() {
-  var inputField = document.getElementById("inputText");
+  var inputField = document.getElementById("bigField");
   inputField.select();
   document.execCommand("copy");
 }
 
 function updateCharCount() {
-  var inputField = document.getElementById("inputText");
+  var inputField = document.getElementById("bigField");
   var charCounter = document.getElementById("charCounter");
   charCounter.textContent = "Characters: " + inputField.value.length;
 }
 
 function removeNumbered() {
-  var inputField = document.getElementById("inputText");
+  var inputField = document.getElementById("bigField");
   var lines = inputField.value.split('\n');
 
   for (var i = 0; i < lines.length; i++) {
@@ -396,7 +396,7 @@ function removeNumbered() {
 
 function toggleDarkMode() {
   var body = document.body;
-  var textarea = document.getElementById("inputText");
+  var textarea = document.getElementById("bigField");
   var darkModeButton = document.getElementById("darkModeButton");
 
   body.classList.toggle("dark-mode");
