@@ -31,7 +31,7 @@ body {
     margin-left: 12px;
     text-decoration: none;
     color: white;
-    font-size: 18px
+    font-size: 21px
 }
 
 .close-btn:hover {
@@ -49,7 +49,7 @@ body {
     text-align: center;
     width: 100%;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .title {
@@ -167,7 +167,7 @@ textarea:focus {
 }
 
 #addButtonContainer {
-    margin: auto;
+    margin-bottom: 15px;
     display: flex;
     width: 100%;
     flex: 1;
@@ -181,7 +181,6 @@ textarea:focus {
 
 #bigField {
     box-sizing: border-box;
-    margin: 15px;
     margin-bottom: 0px;
     width: 100%;
     height: 150px;
@@ -189,11 +188,12 @@ textarea:focus {
 }
 
 .foot-container {
+    background-color: #202123;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
     width: 100%;
-    height: 30px;
+    height: 35px;
 }
 
 #charCounter {
@@ -224,11 +224,18 @@ textarea:focus {
 .greenBackground {
     background-color: #207044;
     transition: background-color 1s ease;
-    
     padding-top: 3px;
     padding-bottom: 3px;
 }
 
 .counter {
-    margin-left: 5px;
+    margin-left: 10px;
 }
+
+.hide-bigfield {
+    margin-right: 10px;
+}
+
+.rotate-hide {
+    transform: rotate(45deg); /* Adjust the angle as needed */
+  }

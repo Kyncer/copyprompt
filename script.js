@@ -1,3 +1,8 @@
+function toggleVisibility() {
+  var bigField = document.getElementById('bigField');
+  bigField.style.display = (bigField.style.display === 'none' || bigField.style.display === '') ? 'block' : 'none';
+}
+
 var lastClickedButton = null;
 
 function addCopyField() {
