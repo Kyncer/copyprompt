@@ -1,0 +1,6 @@
+update notes/ to add:
+
+-insert links to html content using a specific keyword/s
+-auto sort by number/ letter/ 
+-remove dups
+-open all links in bulk
