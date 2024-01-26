@@ -420,3 +420,74 @@ function toggleDarkMode() {
       darkModeButton.style.color = "#333";
   }
 }
+
+//break commas
+function breakComma() {
+  // Get the text from the bigField textarea
+  var inputField = document.getElementById("bigField");
+  var inputValue = inputField.value;
+
+  // Split the text based on commas and trim any extra whitespace
+  var textArray = inputValue.split(',').map(function(item) {
+    return item.trim();
+  });
+
+  // Join the array elements with line breaks
+  var newText = textArray.join('\n');
+
+  // Update the value of the bigField textarea
+  inputField.value = newText;
+
+  // Update the character count
+  updateCharCount();
+}
+
+
+//remove extra space from start line
+function whiteSpace() {
+  var inputField = document.getElementById("bigField");
+  var inputValue = inputField.value;
+
+  // Split the text into lines
+  var lines = inputValue.split('\n');
+
+  // Remove extra spaces from the start of each line
+  for (var i = 0; i < lines.length; i++) {
+    lines[i] = lines[i].replace(/^\s+/, '');
+  }
+
+  // Join the modified lines back into a string
+  var newText = lines.join('\n');
+
+  // Update the value of the bigField textarea
+  inputField.value = newText;
+
+  // Update the character count
+  updateCharCount();
+}
+
+//turn commas
+function turnComma() {
+  // Get the text from the bigField textarea
+  var text = document.getElementById("bigField").value;
+
+  // Remove existing line breaks and replace with a comma and space
+  var newText = text.replace(/\n/g, ", ");
+
+  // Set the modified text back to the bigField textarea
+  document.getElementById("bigField").value = newText;
+
+  // Optionally, you can also update the character count after modifying the text
+  updateCharCount();
+}
+
+//copy all bigfield
+function copyallBig() {
+  // Get the text from the bigField textarea
+  var bigField = document.getElementById("bigField");
+  bigField.select();
+  document.execCommand("copy");
+
+  // Optionally, you can provide some visual feedback to the user
+  alert("Text copied to clipboard!");
+}

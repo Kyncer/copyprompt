@@ -57,6 +57,25 @@ body {
     font-weight: 200;
 }
 
+.containbig {
+    width: 100%;
+    display: flex;
+}
+
+.copybigfield {
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.containerbigfield {
+    display: flex;
+    gap: 5px;
+}
+
+.hide-bigfield-button {
+    cursor: pointer;
+}
+
 input[type="text"] {
     background-color: white;
     border: 0;
