@@ -4,3 +4,10 @@ update notes/ to add:
 -auto sort by number/ letter/ 
 -remove dups
 -open all links in bulk
+
+-make the menu for super responsive and separate uses (theres a main with all features put together)
+
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpFN01UoxereyHqjNr6h_F5NMaGKsWjqA&callback=initMap">
+</script>
