@@ -491,3 +491,24 @@ function copyallBig() {
   // Optionally, you can provide some visual feedback to the user
   alert("Text copied to clipboard!");
 }
+
+//OPEN LINKS
+function openLinks() {
+  var textFields = document.querySelectorAll('.copyField');
+
+  textFields.forEach(function(textField) {
+    var url = textField.value.trim();
+
+    if (url !== "") {
+      // Check if the URL contains a period before opening a new tab
+      if (url.includes(".")) {
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+          url = "http://" + url;
+        }
+
+        // Open the specified URL in a new tab
+        window.open(url, '_blank');
+      }
+    }
+  });
+}
