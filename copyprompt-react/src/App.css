@@ -1,0 +1,22 @@
+:root  {
+    box-sizing: border-box;
+}
+
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .field-container {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+  }
+  
+  .button-left {
+    margin-left: 10px;
+  }
+  
