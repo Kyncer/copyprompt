@@ -242,84 +242,6 @@ function resetAllCounters() {
   });
 }
 
-function saveFields() {
-  var fileName = prompt("Enter a name for the saved file (without extension):");
-
-  if (!fileName) {
-    alert("File name cannot be empty. Please try again.");
-    return;
-  }
-
-  var savedData = {
-    copyFields: [],
-    bigField: document.getElementById("bigField").value
-  };
-
-  var copyFieldContainers = document.querySelectorAll('.copyFieldContainer');
-
-  copyFieldContainers.forEach(function (container, index) {
-    var copyField = container.querySelector('.copyField');
-    savedData.copyFields.push({
-      fieldNumber: index + 1,
-      value: copyField.value
-    });
-  });
-
-  var jsonData = JSON.stringify(savedData);
-  var blob = new Blob([jsonData], { type: 'application/json' });
-  var a = document.createElement('a');
-
-  // Updated the download attribute with the user-specified file name
-  a.download = fileName + '.json';
-
-  a.href = URL.createObjectURL(blob);
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-
-function triggerFileInput() {
-  document.getElementById('loadFileInput').click();
-}
-
-function loadFile() {
-  var input = document.getElementById('loadFileInput');
-  var file = input.files[0];
-
-  if (file) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      var jsonData = JSON.parse(e.target.result);
-      loadFields(jsonData);
-    };
-    reader.readAsText(file);
-  }
-
-  // Clear the input field to allow loading the same file again
-  input.value = '';
-}
-
-function loadFields(data) {
-  // Remove existing blank fields
-  removeEmptyFields();
-
-  // Add fields based on the loaded data
-  addFieldsFromData(data.copyFields.length);
-
-  // Load data into copy fields
-  var copyFieldContainers = document.querySelectorAll('.copyFieldContainer');
-
-  data.copyFields.forEach(function (fieldData, index) {
-    var container = copyFieldContainers[index];
-    var copyField = container.querySelector('.copyField');
-    copyField.value = fieldData.value;
-  });
-
-  // Load data into big field
-  var bigField = document.getElementById('bigField');
-  bigField.value = data.bigField;
-}
-
 function addFieldsFromData(count) {
   for (var i = 1; i <= count; i++) {
     addCopyField();
@@ -511,4 +433,60 @@ function openLinks() {
       }
     }
   });
+}
+
+//SIMPLE SAVE & LOAD
+function saveCopyFields() {
+  var copyFields = [];
+  
+  document.querySelectorAll('.copyField').forEach(function(copyField) {
+      copyFields.push(copyField.value);
+  });
+
+  var copyFieldsCount = document.querySelectorAll('.copyFieldContainer').length;
+
+  var dataToSave = {
+      copyFields: copyFields,
+      copyFieldsCount: copyFieldsCount
+  };
+
+  localStorage.setItem('copyFieldsData', JSON.stringify(dataToSave));
+}
+
+// Function to load copyField inputs and count from Local Storage
+function loadCopyFields() {
+    // Clear existing fields
+    document.querySelectorAll('.copyField').forEach(function (copyField) {
+        copyField.value = '';
+    });
+
+    var savedData = localStorage.getItem('copyFieldsData');
+
+    if (savedData) {
+        savedData = JSON.parse(savedData);
+
+        // Add or remove copyFieldContainers based on the saved count
+        var currentCount = document.querySelectorAll('.copyFieldContainer').length;
+        var difference = savedData.copyFieldsCount - currentCount;
+
+        if (difference > 0) {
+            // Add new copyFieldContainers
+            for (var i = 0; i < difference; i++) {
+                addCopyField();
+            }
+        } else if (difference < 0) {
+            // Remove extra copyFieldContainers
+            var containersToRemove = document.querySelectorAll('.copyFieldContainer').slice(difference);
+            containersToRemove.forEach(function (container) {
+                container.remove();
+            });
+        }
+
+        // Load data after updating the DOM
+        document.querySelectorAll('.copyField').forEach(function (copyField, index) {
+            if (savedData.copyFields[index] !== undefined) {
+                copyField.value = savedData.copyFields[index];
+            }
+        });
+    }
 }

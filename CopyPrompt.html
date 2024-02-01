@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
 
   <title>CopyPrompt</title>
@@ -27,31 +28,31 @@
       <!-- Initial 5 default input fields with buttons -->
       <div class="copyFieldContainer">
         <span class="fieldNumber">1.</span>
-        <input type="text" class="copyField" size="100">
+        <input type="text" id="noteInput1" class="copyField" size="100">
         <button class="copyButton" onclick="copyToClipboard(1, this)">COPY</button>
         <button class="copyButton" onclick="goToDestination(1, this)">GO</button>
       </div>
       <div class="copyFieldContainer">
         <span class="fieldNumber">2.</span>
-        <input type="text" class="copyField" size="100">
+        <input type="text" id="noteInput2" class="copyField" size="100">
         <button class="copyButton" onclick="copyToClipboard(2, this)">COPY</button>
         <button class="copyButton" onclick="goToDestination(2, this)">GO</button>
       </div>
       <div class="copyFieldContainer">
         <span class="fieldNumber">3.</span>
-        <input type="text" class="copyField" size="100">
+        <input type="text" id="noteInput3" class="copyField" size="100">
         <button class="copyButton" onclick="copyToClipboard(3, this)">COPY</button>
         <button class="copyButton" onclick="goToDestination(3, this)">GO</button>
       </div>
       <div class="copyFieldContainer">
         <span class="fieldNumber">4.</span>
-        <input type="text" class="copyField" size="100">
+        <input type="text" id="noteInput4" class="copyField" size="100">
         <button class="copyButton" onclick="copyToClipboard(4, this)">COPY</button>
         <button class="copyButton" onclick="goToDestination(4, this)">GO</button>
       </div>
       <div class="copyFieldContainer">
         <span class="fieldNumber">5.</span>
-        <input type="text" class="copyField" size="100">
+        <input type="text" id="noteInput5" class="copyField" size="100">
         <button class="copyButton" onclick="copyToClipboard(5, this)">COPY</button>
         <button class="copyButton" onclick="goToDestination(5, this)">GO</button>
       </div>
@@ -79,7 +80,8 @@
         <button class="convert-btn" onclick="whiteSpace()">Whitespace</button>
         <button class="convert-btn" onclick="breakComma()">Break Comma</button>
         <button class="convert-btn" onclick="turnComma()">Turn Comma</button>
-        <button class="convert-btn" onclick="extra()">Extra</button>
+        <button class="convert-btn" onclick="saveCopyFields()">Save</button>
+        <button class="convert-btn" onclick="loadCopyFields()">Load</button>
       </div>
     </div>
     <div class="containbig">
@@ -121,9 +123,9 @@
           </svg>
         </div>
       </div>
-      </div>
-      <input type="file" id="loadFileInput" style="display:none" accept=".json" onchange="loadFile()">
-      <script src="script.js"></script>
+    </div>
+    <input type="file" id="loadFileInput" style="display:none" accept=".json" onchange="loadFile()">
+    <script src="script.js"></script>
 </body>
 
 </html>

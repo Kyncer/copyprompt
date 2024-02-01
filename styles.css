@@ -150,8 +150,6 @@ textarea:focus {
     padding: 6px 12px;
     color: #FFFFFF;
     font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
     cursor: pointer;
 }
 
@@ -230,19 +228,16 @@ textarea:focus {
 /* Added highlight effect */
 .highlight {
     background-color: lightgreen;
-    transition: background-color 1s ease;
     padding: 0;
 }
 
 .highlight2 {
     background-color: red;
-    transition: background-color 1s ease;
     padding: 0;
 }
 
 .greenBackground {
     background-color: #207044;
-    transition: background-color 1s ease;
     padding-top: 3px;
     padding-bottom: 3px;
 }
@@ -256,5 +251,6 @@ textarea:focus {
 }
 
 .rotate-hide {
-    transform: rotate(45deg); /* Adjust the angle as needed */
-  }
+    transform: rotate(45deg);
+    /* Adjust the angle as needed */
+}

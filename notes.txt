@@ -3,5 +3,8 @@ update notes/ to add:
 -insert links to html content using a specific keyword/s
 -auto sort by number/ letter/ 
 -remove dups
-
+-rapid paste
 -make the menu for super responsive and separate uses (theres a main with all features put together) 
+
+
+saveload-working but need to fix the less than 5 fields not saving

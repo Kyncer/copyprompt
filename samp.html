@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Notepad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple Notepad</h1>
+    <textarea id="noteInput" placeholder="Type your note here..."></textarea>
+    <button onclick="saveNote()">Save Note</button>
+    <button onclick="loadNote()">Load Note</button>
+    <button onclick="clearNote()">Clear Note</button>
+
+    <script>
+        const noteInput = document.getElementById('noteInput');
+
+        function saveNote() {
+            const noteText = noteInput.value.trim();
+            if (noteText !== '') {
+                localStorage.setItem('savedNote', noteText);
+                alert('Note saved successfully!');
+            } else {
+                alert('Please enter a note before saving.');
+            }
+        }
+
+        function loadNote() {
+            const savedNote = localStorage.getItem('savedNote');
+            if (savedNote) {
+                noteInput.value = savedNote;
+                alert('Note loaded successfully!');
+            } else {
+                alert('No saved note found.');
+            }
+        }
+
+        function clearNote() {
+            noteInput.value = '';
+            localStorage.removeItem('savedNote');
+            alert('Note cleared successfully!');
+        }
+    </script>
+</body>
+
+</html>
