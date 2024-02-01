@@ -21,6 +21,10 @@ body {
     flex: 1;
 }
 
+.opennew {
+    margin-left: 12px;
+}
+
 .clip {
     cursor: pointer;
     margin-right: 12px;

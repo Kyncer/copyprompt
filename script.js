@@ -249,19 +249,19 @@ function addFieldsFromData(count) {
 }
 
 function copyAllFields() {
-var copyFields = document.querySelectorAll('.copyField');
-var copiedText = '';
+  var copyFields = document.querySelectorAll('.copyField');
+  var copiedText = '';
 
-copyFields.forEach(function (copyField) {
-copiedText += copyField.value + '\n';
-});
+  copyFields.forEach(function (copyField) {
+    copiedText += copyField.value + '\n';
+  });
 
-var dummy = document.createElement("textarea");
-document.body.appendChild(dummy);
-dummy.value = copiedText.trim();
-dummy.select();
-document.execCommand("copy");
-document.body.removeChild(dummy);
+  var dummy = document.createElement("textarea");
+  document.body.appendChild(dummy);
+  dummy.value = copiedText.trim();
+  dummy.select();
+  document.execCommand("copy");
+  document.body.removeChild(dummy);
 }
 
 //for case convert app
@@ -282,7 +282,7 @@ function convertToCapitalizeCase() {
   var inputField = document.getElementById("bigField");
   var words = inputField.value.split(' ');
   for (var i = 0; i < words.length; i++) {
-      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
   }
   inputField.value = words.join(' ');
   updateCharCount();
@@ -311,8 +311,8 @@ function removeNumbered() {
   var lines = inputField.value.split('\n');
 
   for (var i = 0; i < lines.length; i++) {
-      // Remove numbers or number lists (with or without a closing parenthesis) from the start of each line
-      lines[i] = lines[i].replace(/^\d+(\.|\))?\s*/, '');
+    // Remove numbers or number lists (with or without a closing parenthesis) from the start of each line
+    lines[i] = lines[i].replace(/^\d+(\.|\))?\s*/, '');
   }
 
   inputField.value = lines.join('\n');
@@ -333,13 +333,13 @@ function toggleDarkMode() {
   var isDarkMode = body.classList.contains("dark-mode");
 
   if (isDarkMode) {
-      darkModeButton.textContent = "Light Mode";
-      darkModeButton.style.backgroundColor = "#333";
-      darkModeButton.style.color = "#fff";
+    darkModeButton.textContent = "Light Mode";
+    darkModeButton.style.backgroundColor = "#333";
+    darkModeButton.style.color = "#fff";
   } else {
-      darkModeButton.textContent = "Dark Mode";
-      darkModeButton.style.backgroundColor = "#fff";
-      darkModeButton.style.color = "#333";
+    darkModeButton.textContent = "Dark Mode";
+    darkModeButton.style.backgroundColor = "#fff";
+    darkModeButton.style.color = "#333";
   }
 }
 
@@ -350,7 +350,7 @@ function breakComma() {
   var inputValue = inputField.value;
 
   // Split the text based on commas and trim any extra whitespace
-  var textArray = inputValue.split(',').map(function(item) {
+  var textArray = inputValue.split(',').map(function (item) {
     return item.trim();
   });
 
@@ -418,7 +418,7 @@ function copyallBig() {
 function openLinks() {
   var textFields = document.querySelectorAll('.copyField');
 
-  textFields.forEach(function(textField) {
+  textFields.forEach(function (textField) {
     var url = textField.value.trim();
 
     if (url !== "") {
@@ -438,16 +438,16 @@ function openLinks() {
 //SIMPLE SAVE & LOAD
 function saveCopyFields() {
   var copyFields = [];
-  
-  document.querySelectorAll('.copyField').forEach(function(copyField) {
-      copyFields.push(copyField.value);
+
+  document.querySelectorAll('.copyField').forEach(function (copyField) {
+    copyFields.push(copyField.value);
   });
 
   var copyFieldsCount = document.querySelectorAll('.copyFieldContainer').length;
 
   var dataToSave = {
-      copyFields: copyFields,
-      copyFieldsCount: copyFieldsCount
+    copyFields: copyFields,
+    copyFieldsCount: copyFieldsCount
   };
 
   localStorage.setItem('copyFieldsData', JSON.stringify(dataToSave));
@@ -455,38 +455,48 @@ function saveCopyFields() {
 
 // Function to load copyField inputs and count from Local Storage
 function loadCopyFields() {
-    // Clear existing fields
-    document.querySelectorAll('.copyField').forEach(function (copyField) {
-        copyField.value = '';
-    });
+  // Clear existing fields
+  document.querySelectorAll('.copyField').forEach(function (copyField) {
+    copyField.value = '';
+  });
 
-    var savedData = localStorage.getItem('copyFieldsData');
+  var savedData = localStorage.getItem('copyFieldsData');
 
-    if (savedData) {
-        savedData = JSON.parse(savedData);
+  if (savedData) {
+    savedData = JSON.parse(savedData);
 
-        // Add or remove copyFieldContainers based on the saved count
-        var currentCount = document.querySelectorAll('.copyFieldContainer').length;
-        var difference = savedData.copyFieldsCount - currentCount;
+    // Add or remove copyFieldContainers based on the saved count
+    var currentCount = document.querySelectorAll('.copyFieldContainer').length;
+    var difference = savedData.copyFieldsCount - currentCount;
 
-        if (difference > 0) {
-            // Add new copyFieldContainers
-            for (var i = 0; i < difference; i++) {
-                addCopyField();
-            }
-        } else if (difference < 0) {
-            // Remove extra copyFieldContainers
-            var containersToRemove = document.querySelectorAll('.copyFieldContainer').slice(difference);
-            containersToRemove.forEach(function (container) {
-                container.remove();
-            });
-        }
-
-        // Load data after updating the DOM
-        document.querySelectorAll('.copyField').forEach(function (copyField, index) {
-            if (savedData.copyFields[index] !== undefined) {
-                copyField.value = savedData.copyFields[index];
-            }
-        });
+    if (difference > 0) {
+      // Add new copyFieldContainers
+      for (var i = 0; i < difference; i++) {
+        addCopyField();
+      }
+    } else if (difference < 0) {
+      // Remove extra copyFieldContainers
+      var containersToRemove = document.querySelectorAll('.copyFieldContainer').slice(difference);
+      containersToRemove.forEach(function (container) {
+        container.remove();
+      });
     }
+
+    // Load data after updating the DOM
+    document.querySelectorAll('.copyField').forEach(function (copyField, index) {
+      if (savedData.copyFields[index] !== undefined) {
+        copyField.value = savedData.copyFields[index];
+      }
+    });
+  }
+}
+
+//OPEN NEW WINDOW
+
+function openSeparateWindow() {
+  // Specify the URL of the HTML page
+  var pageUrl = '/CopyPrompt.html';
+
+  // Open a new window with the specified URL
+  var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');
 }
