@@ -486,7 +486,7 @@ function loadCopyFields() {
 
 function openSeparateWindow() {
   // Specify the URL of the HTML page
-  var pageUrl = '/CopyPrompt.html';
+  var pageUrl = 'file:///C:/Users/ZeonKatyKynce/Documents/GitHub/copyprompt/CopyPrompt.html';
 
   // Open a new window with the specified URL
   var newWindow = window.open(pageUrl, 'SeparateWindow', 'width=665,height=658');

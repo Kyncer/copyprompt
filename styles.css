@@ -22,6 +22,7 @@ body {
 }
 
 .opennew {
+    cursor: pointer;
     margin-left: 12px;
 }
 
@@ -155,11 +156,10 @@ textarea:focus {
     text-transform: uppercase;
     outline: 0;
     background: #343541;
-    max-width: 130px;
     flex: 1;
     white-space: nowrap;
     border: 0;
-    padding: 8px 12px;
+    padding: 8px 15px;
     color: #FFFFFF;
     font-size: 15px;
     cursor: pointer;
