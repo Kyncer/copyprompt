@@ -202,10 +202,7 @@ function getRandomColor() {
 }
 
 function showRefreshConfirmation() {
-  var confirmRefresh = confirm("Are you sure you want to refresh? This will clear all fields.");
-  if (confirmRefresh) {
-    refreshFields();
-  }
+  refreshFields();
 }
 
 function refreshFields() {
@@ -285,12 +282,6 @@ function convertToCapitalizeCase() {
     words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
   }
   inputField.value = words.join(' ');
-  updateCharCount();
-}
-
-function clearText() {
-  var inputField = document.getElementById("bigField");
-  inputField.value = "";
   updateCharCount();
 }
 

@@ -115,9 +115,16 @@ textarea:focus {
     box-sizing: border-box;
 }
 
+.contain-all-btn {
+    margin-inline: 5px;
+}
+
 #buttonGroup {
-    gap: 10px;
-    padding-inline: 20px;
+    display: flex;
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .copyButton {
@@ -148,13 +155,29 @@ textarea:focus {
     text-transform: uppercase;
     outline: 0;
     background: #343541;
-    width: 100%;
+    max-width: 130px;
+    flex: 1;
     white-space: nowrap;
     border: 0;
-    padding: 6px 12px;
+    padding: 8px 12px;
     color: #FFFFFF;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
+}
+
+#distributeButton:hover,
+#addFieldButton:hover {
+    background-color: #207044d0;
+    transition: all .3s ease;
+}
+
+.convert-btn:hover,
+#replaceFieldButton:hover,
+#refreshButton:hover,
+#decrementButton:hover,
+#resetCountersButton:hover {
+    background-color: #343541c5;
+    transition: all .3s ease;
 }
 
 #addFieldButton {
@@ -197,7 +220,7 @@ textarea:focus {
 #buttonGroup {
     display: flex;
     margin-top: 10px;
-    width: 600px;
+    width: 100%;
 }
 
 #bigField {
