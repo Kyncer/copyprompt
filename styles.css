@@ -141,6 +141,15 @@ textarea:focus {
     margin-left: 3px;
 }
 
+.swal2-title {
+    font-size: 18px;
+}
+
+.swal2-popup {
+    width: auto;
+    height: auto;
+}
+
 .convert-btn,
 #addFieldButton,
 #replaceFieldButton,

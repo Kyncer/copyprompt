@@ -402,7 +402,11 @@ function copyallBig() {
   document.execCommand("copy");
 
   // Optionally, you can provide some visual feedback to the user
-  alert("Text copied to clipboard!");
+  Swal.fire({
+    title: 'BigField Copied!',
+    showConfirmButton: false,
+    timer: 300 // Adjust the duration as needed
+  });
 }
 
 //OPEN LINKS
